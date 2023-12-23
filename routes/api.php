@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminBlogController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ContactControlller;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
@@ -47,3 +50,16 @@ Route::get('/contact',[ContactControlller::class,'contact'])->name('contact');
 Route::get('/about',[AboutController::class,'about'])->name('about');
 
 Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
+
+
+Route::get('/adminblog',[AdminController::class,'admin'])->name('admin');
+
+Route::get('/image',[AdminController::class,'image'])->name('image');
+
+Route::get('/waitlist',[AdminBlogController::class,'waitlist'])->name('waitlist');
+
+Route::get('/editblog',[AdminBlogController::class,'editblog'])->name('editblog');
+
+Route::get('/useradmin',[AdminUserController::class,'useradmin'])->name('useradmin');
+
+Route::get('/edituser',[AdminUserController::class,'edituser'])->name('edituser');
