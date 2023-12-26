@@ -1,4 +1,6 @@
-
+<?php
+ session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +75,7 @@
 
                         <div class="col-md-6">
                             <div class="top-bar__links">
-                                @if (!isset($_SESSION['userprofide'][ 'usernames']) )
+                                @if (!isset($_SESSION['userprofide'][ 'usernames']))
                                     <a href="{{ route('login') }}">Login</a>
                                 @else
                                 <a href="{{ route('profile') }}">{{ $_SESSION['userprofide'][ 'usernames'] }}</a>
@@ -82,6 +84,7 @@
                                 @endif
 
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -102,7 +105,7 @@
                             <ul class="top-nav__menu">
                                 <li class="active"><a href="{{ route('home') }}">Home</a></li>
                                 <li><a href="{{ route('recipes') }}">Recipes</a></li>
-                                <li><a href="#">admin</a></li>
+                                <li><a href="{{ route('admin') }}">admin</a></li>
                                 <li><a href="{{ route('about') }}">About</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>

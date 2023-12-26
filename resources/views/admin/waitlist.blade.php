@@ -1,5 +1,8 @@
 @extends('layoutadmin')
 @section('main')
+<?php
+ session_start();
+?>
     <div class="main-container">
         <div class="pd-ltr-20 height-100-p xs-pd-20-10">
             <div class="min-height-200px">

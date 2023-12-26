@@ -1,3 +1,6 @@
+{{-- <?php
+ session_start();
+?> --}}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,7 +9,7 @@
 		<title>admin</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
-      
+
 		<!-- Site favicon -->
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -248,18 +251,18 @@
 							<span class="user-icon">
 								<img src="vendors/images/photo1.jpg" alt="" />
 							</span>
-							<span class="user-name">Ross C. Lopez</span>
+							<span class="user-name">{{ $_SESSION['userprofide'][ 'usernames'] }}</span>
 						</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
 						>
-							<a class="dropdown-item" href="profile.html"
+							<a class="dropdown-item" href="{{ route('profile') }}"
 								><i class="bi bi-person-circle"></i> Profile</a
 							>
-							<a class="dropdown-item" href="faq.html"
+							<a class="dropdown-item" href="{{ route('home') }}"
 								><i class="bi bi-house"></i> back home</a
 							>
-							<a class="dropdown-item" href="login.html"
+							<a class="dropdown-item" href="{{ route('login') }}"
 								><i class="bi bi-box-arrow-in-right"></i> Log Out</a
 							>
 						</div>
@@ -547,6 +550,6 @@
 				width="0"
 				style="display: none; visibility: hidden"
 			></iframe
-		></noscript> Tag Manager (noscript) -->
+		></noscript>
 	</body>
 </html>

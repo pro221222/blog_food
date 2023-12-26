@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -22,7 +23,7 @@ public function checklogin() {
 
         'password' => request('password'),
     ]);
-  
+
     // Check if the request was successful (status code 2xx)
     if ($response->successful()) {
 
@@ -66,13 +67,15 @@ public function checklogin() {
             $name = $claim->get('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name');
             $nameIdentifier = $claim->get('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier');
             $username = $claim->get('sub');
+            $role = $claim->get('http://schemas.microsoft.com/ws/2008/06/identity/claims/role');
 
             $names = json_encode ($name);
             $nameIdentifiers = json_encode ($nameIdentifier);
             $_SESSION['userprofide'] = array(
                 'names' => $names,
                 'nameIdentifiers' => $nameIdentifiers,
-                'usernames' =>  $username
+                'usernames' =>  $username,
+                'role' =>  $role,
             );
 
 
@@ -85,7 +88,11 @@ public function checklogin() {
         if ($response->getStatusCode() >= 200 && $response->getStatusCode() < 300) {
           $responseData = $response->getBody()->getContents();
           $array = json_decode($responseData, true);
-          return view('client/home',compact('array'));
+          if ( $_SESSION['userprofide']['role'] == 'Admin') {
+
+                return view('admin/blog',compact('array'));
+             }
+                return view('client/home',compact('array'));
 
         //    return view('client/home',compact('array'));
       } else {
@@ -105,9 +112,34 @@ public function checklogin() {
     }
 
 }
-public function detry() {
+    public function register() {
+        if (preg_match('/^[0-9]{10}$/', Request('phoneNumber')) && preg_match('/^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/', Request('password'))) {
+            // dd(Request('phoneNumber'));
+            if (request('password') == Request('confirmPassword')) {
+            $response = Http::post('http://localhost:7114/api/Authentication/Register', [
+                    'userName' => Request('userName'),
+                    'displayName' => Request('DisplayName'),
+                    'phoneNumber' =>Request('phoneNumber'),
+                    'email' =>Request('email'),
+                    'password' =>Request('password'),
+                    'confirmPassword' =>Request('confirmPassword'),
+                ]);
+                dd( $response);
+                // return view('login');
+            }else{
+                dd('ssfsfs');
+            }
 
-    Auth::logout();
-    return redirect('login');
-}
+        }else{
+            dd('dddddd');
+
+        }
+
+
+    }
+    public function detry() {
+
+        Auth::logout();
+        return redirect('login');
+    }
 }

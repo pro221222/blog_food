@@ -1,5 +1,8 @@
 @extends('layoutadmin')
 @section('main')
+<?php
+ session_start();
+?>
     <div class="main-container">
         <div class="pd-ltr-20 xs-pd-20-10">
             <div class="min-height-200px">
@@ -15,7 +18,7 @@
                                         <a href="index.html">Home</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Form Basic
+                                        Edituser
                                     </li>
                                 </ol>
                             </nav>

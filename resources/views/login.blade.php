@@ -22,6 +22,7 @@
                         <input type="text" placeholder="Username" name="username"
                             style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
                     </div>
+
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" name="password"
@@ -47,12 +48,27 @@
                 </form>
 
 
-                <form action="" class="sign-up-form">
+                <form action="{{ route('register') }}" class="sign-up-form" method="POST">
                     <h2 class="title">Sign Up</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Username"
-                            name="username"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
+                            name="userName"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="DisplayName" name="DisplayName"
+                            style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="email" placeholder="Email"
+                            name="email"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="number" placeholder="Phone"
+                            name="phoneNumber"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
                     </div>
                     {{-- <div class="input-field">
               <i class="fas fa-envelope"></i>
@@ -61,7 +77,12 @@
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password"
-                            name="Password"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
+                            name="password"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="confirmPassword" placeholder="confirmPassword"
+                            name="confirmPassword"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" />
                     </div>
                     <input type="submit" value="Sign Up" class="btn solid" />
 

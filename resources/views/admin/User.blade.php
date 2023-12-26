@@ -1,5 +1,8 @@
 @extends('layoutadmin')
 @section('main')
+<?php
+ session_start();
+?>
     <style>
         .switch-btn {
             display: none;
@@ -58,7 +61,6 @@
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">user-name</th>
-                                <th scope="col">password</th>
                                 <th scope="col">email</th>
                                 <th scope="col">phone</th>
                                 <th scope="col">role</th>
@@ -66,12 +68,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($user as $item)
+
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>fjgjhdgd</td>
-                                <td>quang@fdj</td>
-                                <td>32424294</td>
+                                <th scope="row"></th>
+                                <td>{{ $item['displayName'] }}</td>
+                                <td>{{ $item['email'] }}</td>
+                                <td>{{ $item['phoneNumber'] }}</td>
                                 <td>
 
                                     <input type="checkbox" checked class="switch-btn" data-color="#0099ff" />
@@ -79,12 +82,13 @@
                                 </td>
                                 <td>
                                     <div class="table-actions">
-                                        <a href="#" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
-                                        <a href="#" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
+                                        <a href="#" data-color="#265ed7"><i class="icon-copy bi bi-pencil"></i></a>
+                                        <a href="#" data-color="#e95959"><i class="icon-copy bi bi-trash"></i></a>
                                     </div>
                                 </td>
 
                             </tr>
+                              @endforeach
 
                         </tbody>
                     </table>

@@ -1,6 +1,8 @@
 @extends('layoutadmin')
 @section('main')
-
+<?php
+ session_start();
+?>
 
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -17,7 +19,7 @@
                                     <a href="index.html">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Form
+                                    post
                                 </li>
                             </ol>
                         </nav>
@@ -43,20 +45,19 @@
             </div>
 
             <div class="html-editor pd-20 card-box mb-30">
-                <h4 class="h4 text-blue">bootstrap wysihtml5</h4>
-                <p>Simple, beautiful wysiwyg editors</p>
+                <h4 class="h4 text-blue">post</h4>
+                <label for="">tiêu đề</label>
+                <input type="text" style="border:1px solid rgb(227, 225, 225) ">
+                <br>
+                <label for="">ảnh</label>
+                <input type="fide" style="border:1px solid rgb(227, 225, 225) ">
                 <textarea
                     class="textarea_editor form-control border-radius-0"
                     placeholder="Enter text ..."
                 ></textarea>
             </div>
         </div>
-        <div class="footer-wrap pd-20 mb-20 card-box">
-            DeskApp - Bootstrap 4 Admin Template By
-            <a href="https://github.com/dropways" target="_blank"
-                >Ankit Hingarajiya</a
-            >
-        </div>
+
     </div>
 </div>
 @endsection

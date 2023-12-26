@@ -39,6 +39,8 @@ Route::post('/checklogin',[LoginController::class,'checklogin'])->name('checklog
 
 Route::get('/logout',[LoginController::class,'detry'])->name('logout');
 
+Route::post('/register',[LoginController::class,'register'])->name('register');
+
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
 Route::get('/recipe_detail/{id}',[DetailController::class,'recipe_detail'])->name('recipe_detail');
