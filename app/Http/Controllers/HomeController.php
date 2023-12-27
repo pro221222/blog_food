@@ -38,6 +38,10 @@ class HomeController extends Controller
 
 
        if (isset($_SESSION['userprofide'][ 'usernames'])) {
+        $thumbnail = request()->file('thumbnail');
+        $fileImage = time() . '.' . $thumbnail->getClientOriginalName();
+        $thumbnail->storeAs('image_singer', $fileImage, 'public');
+        $imageSinger = 'storage/image_singer/' . $fileImage;
             $response = Http::post('http://localhost:7114/api/Post?UserID='.$_SESSION['userprofide'][ 'nameIdentifiers'], [
                 'title' => [
                     'postID' => 'string', // Replace with actual post ID
@@ -47,7 +51,7 @@ class HomeController extends Controller
                     'nameFood' => request('nameFood'),
                     'rating' => 0,
                     'isFavorite' => true,
-                    'thumbnail' =>  $originalName,
+                    'thumbnail' =>  $imageSinger,
                     'description' => request('description'),
                 ],
                 'category' => request('category'),
@@ -56,7 +60,7 @@ class HomeController extends Controller
                 'ingredients' => [request('ingredients')],
 
         ]);
-        dd( request('description'));
+        dd($imageSinger );
        }else{
         echo("dgsufdhd");
        }

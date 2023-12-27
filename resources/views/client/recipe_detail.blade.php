@@ -4,6 +4,9 @@
 <main>
     <!-- Hero section start -->
     <section class="hero"></section>
+
+        <img src="{{ asset('') }}" alt="" style="width: 100%; height: 500px;" >
+
     <!-- Hero section end -->
 
     <!-- Recipe-detail section start -->

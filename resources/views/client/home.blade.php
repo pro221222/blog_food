@@ -2,8 +2,10 @@
 @section('main')
     <main>
         <!-- Hero section start -->
-        <section class="hero">
+        <section class="hero" style="position: relative">
+            <img src="{{ asset('storage\image\slider-bg-2.jpg') }}" alt="" style="width: 100%; height: 500px; position: absolute" >
             <div class="hero__container">
+
                 <div class="hero__content">
                     <h1>
                         <span>Healthy Recipes</span>

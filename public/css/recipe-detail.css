@@ -1,13 +1,12 @@
 /***************** SECTION HERO *********************/
 
-.hero {
+/* .hero {
     height: 767px;
-
-    background-image: url(../images/recipes/single-big.jpg);
+    background-image: url('storage/image/slider-bg-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
-}
+} */
 
 /********** Recipe detail section ***********/
 .recipe-detail {

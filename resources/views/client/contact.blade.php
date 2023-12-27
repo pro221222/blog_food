@@ -1,6 +1,18 @@
 @extends('layout')
 @section('main')
+<style>
+    .hero {
+    padding-top: 60px;
+    padding-bottom: 60px;
 
+    /* background-image: url(../images/page-top-bg.jpg); */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+
+    text-align: center;
+}
+</style>
 <main>
     <!-- Hero section start -->
     <section class="hero">
@@ -110,6 +122,6 @@
             </div>
         </div>
     </section>
-    <!-- Contact section end -->
+
 </main>
 @endsection

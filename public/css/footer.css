@@ -1,7 +1,6 @@
 /****************** SECTION FOOTER *****************/
 
 footer {
-    background-image: url(../images/footer-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -176,5 +175,5 @@ button#scrollButton {
 }
 
 button#scrollButton:hover {
-    opacity: 0.7;   
+    opacity: 0.7;
 }

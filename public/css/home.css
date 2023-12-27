@@ -1,8 +1,7 @@
 /*********************** Homepage **********************/
 
 /* Hero Section */
-.hero {
-    background-image: url('storage\image\slider-bg-2.jpg') ;
+.img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
