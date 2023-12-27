@@ -478,10 +478,10 @@
                       ><span class="mtext">Edit</span>
                     </a>
                     <ul class="submenu">
-                      <li><a href="{{ route('editblog') }}">Blog Editor</a></li>
+                      {{-- <li><a href="{{ route('editblog') }}">Blog Editor</a></li> --}}
                       <li><a href="{{ route('image') }}">Image Cropper</a></li>
                       <li><a href="{{ route('waitlist') }}">Waitlist</a></li>
-                      <li><a href="{{ route('edituser') }}">edituser</a></li>
+                      {{-- <li><a href="{{ route('edituser') }}">edituser</a></li> --}}
                     </ul>
                   </li>
                   <li class="dropdown">

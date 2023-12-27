@@ -53,7 +53,31 @@
         </div>
 
     </section>
+    <style>
 
+.fa-thumbs-up{
+    color:black;
+    font-size: 40px
+}
+#likeButton {
+  background-color: #ffffff;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#likeButton.liked {
+    .fa-thumbs-up{
+        color: #003ffc;
+    }
+
+}
+
+    </style>
+   <div class="post">
+            <button id="likeButton" onclick="toggleLike()"><i class="fa-solid fa-thumbs-up"></i></button>
+          </div>
     <!-- Recipe-detail section end -->
     <div class="comment-container">
 
@@ -72,6 +96,8 @@
             </form>
         </div>
 
+
+
         <!-- Comment Section -->
         <div class="comment-section" id="commentSection">
             <!-- Existing Comments will be added here -->
@@ -79,4 +105,20 @@
 
     </div>
 </main>
+<script>
+   let likeCount = 0;
+
+function toggleLike() {
+  const likeButton = document.getElementById("likeButton");
+  likeCount++;
+
+  if (likeCount % 2 === 1) {
+    likeButton.classList.add("liked");
+  } else {
+    likeButton.classList.remove("liked");
+  }
+}
+
+
+</script>
 @endsection

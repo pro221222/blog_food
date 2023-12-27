@@ -11,7 +11,7 @@ class AdminController extends Controller
 
  session_start();
 
-        $response = Http::get('http://localhost:7114/api/Post');
+        $response = Http::get('http://localhost:7114/api/Post/PostTrue');
 
         // Kiểm tra nếu request thành công (HTTP status code 2xx)
         if ($response->getStatusCode() >= 200 && $response->getStatusCode() < 300) {

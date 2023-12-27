@@ -82,7 +82,7 @@
                                 </td>
                                 <td>
                                     <div class="table-actions">
-                                        <a href="#" data-color="#265ed7"><i class="icon-copy bi bi-pencil"></i></a>
+                                        {{-- <a href="#" data-color="#265ed7"><i class="icon-copy bi bi-pencil"></i></a> --}}
                                         <a href="#" data-color="#e95959"><i class="icon-copy bi bi-trash"></i></a>
                                     </div>
                                 </td>

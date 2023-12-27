@@ -52,7 +52,7 @@
                                                                 ex ea commodo
                                                             </p>
                                                             <div class="pt-10">
-                                                                <a href="#" class="btn btn-outline-primary">Read
+                                                                <a href="{{ route('detail',['id' => $item['postID']]) }}" class="btn btn-outline-primary">Read
                                                                     More</a>
                                                             </div>
                                                         </div>
@@ -60,10 +60,10 @@
                                                 </div>
                                             </div>
                                         </li>
- @endforeach
+                                        @endforeach
                                     </ul>
                                 </div>
-                                <div class="blog-pagination">
+                                {{-- <div class="blog-pagination">
                                     <div class="btn-toolbar justify-content-center mb-15">
                                         <div class="btn-group">
                                             <a href="#" class="btn btn-outline-primary prev"><i
@@ -77,7 +77,7 @@
                                                     class="fa fa-angle-double-right"></i></a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>

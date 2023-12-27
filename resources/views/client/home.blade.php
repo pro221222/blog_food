@@ -28,29 +28,31 @@
 
                 <div class="row">
                     @foreach ($array as $item)
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="100">
-        <div class="recipes-list__item">
-            <a href="{{ route('recipe_detail',['id' => $item['postID']])}}">
-                <img src="{{ $item['thumbnail'] }}" alt="">
-                <div class="recipes-list__info-background">
-                    <div class="recipes-list__info">
-                        <h3>{{ $item['nameFood'] }}</h3>
-                        <div class="recipes-list__rating">
-                           @for ($i = 0; $i < $item['rating']; $i++)
-                           <i class="fas fa-star" style="color: #eee263;"></i>
-                           @endfor
 
-                            {{-- <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i> --}}
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="100">
+                        <div class="recipes-list__item">
+                            <a href="{{ route('recipe_detail',['id' => $item['postID']])}}">
+                                <img src="{{ $item['thumbnail'] }}" alt="">
+                                <div class="recipes-list__info-background">
+                                    <div class="recipes-list__info">
+                                        <h3>{{ $item['nameFood'] }}</h3>
+                                        <div class="recipes-list__rating">
+                                        @for ($i = 0; $i < $item['rating']; $i++)
+                                        <i class="fas fa-star" style="color: #eee263;"></i>
+                                        @endfor
+
+                                            {{-- <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
-    </div>
-@endforeach
+
+                @endforeach
 
                 </div>
             </div>
@@ -101,7 +103,7 @@
                             <ul class="recipes-rating__liked">
                                 @foreach ($array as $item)
 
-                                @endforeach
+
                                 <li>
                                     <div class="recipes-rating__list-items">
                                         <div class="recipes-rating__image">
@@ -122,6 +124,7 @@
                                         </div>
                                     </div>
                                 </li>
+                                 @endforeach
                             </ul>
                         </div>
                     </div>

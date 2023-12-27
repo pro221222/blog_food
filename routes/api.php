@@ -54,6 +54,23 @@ Route::get('/about',[AboutController::class,'about'])->name('about');
 Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
 
 
+Route::get('/postblog',[HomeController::class,'postblog'])->name('postblog');
+
+Route::post('/post',[HomeController::class,'post'])->name('post');
+
+
+
+
+
+
+
+
+
+
+
+
+//admin
+
 Route::get('/adminblog',[AdminController::class,'admin'])->name('admin');
 
 Route::get('/image',[AdminController::class,'image'])->name('image');
@@ -65,3 +82,5 @@ Route::get('/editblog',[AdminBlogController::class,'editblog'])->name('editblog'
 Route::get('/useradmin',[AdminUserController::class,'useradmin'])->name('useradmin');
 
 Route::get('/edituser',[AdminUserController::class,'edituser'])->name('edituser');
+
+Route::get('/detail/{id}',[AdminBlogController::class,'detail'])->name('detail');

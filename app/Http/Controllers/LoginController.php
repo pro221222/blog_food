@@ -124,8 +124,7 @@ public function checklogin() {
                     'password' =>Request('password'),
                     'confirmPassword' =>Request('confirmPassword'),
                 ]);
-                dd( $response);
-                // return view('login');
+                return view('login');
             }else{
                 dd('ssfsfs');
             }
