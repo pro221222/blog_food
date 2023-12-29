@@ -39,7 +39,9 @@ Route::post('/checklogin',[LoginController::class,'checklogin'])->name('checklog
 
 Route::get('/logout',[LoginController::class,'detry'])->name('logout');
 
-Route::post('/register',[LoginController::class,'register'])->name('register');
+Route::get('/register',[LoginController::class,'register'])->name('register');
+
+Route::post('/checkregister',[LoginController::class,'checkregister'])->name('checkregister');
 
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
@@ -84,3 +86,6 @@ Route::get('/useradmin',[AdminUserController::class,'useradmin'])->name('useradm
 Route::get('/edituser',[AdminUserController::class,'edituser'])->name('edituser');
 
 Route::get('/detail/{id}',[AdminBlogController::class,'detail'])->name('detail');
+
+Route::post('/postwaitlist/{id}',[AdminBlogController::class,'postwaitlist'])->name('postwaitlist');
+// Route::get('/postwaitlist/{id}',[AdminBlogController::class,'postwaitlist'])->name('postwaitlist');

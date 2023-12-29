@@ -23,6 +23,7 @@ class AdminUserController extends Controller
         return view('admin/User');
     }
     public function edituser() {
+        
         return view('admin/edituser');
     }
 

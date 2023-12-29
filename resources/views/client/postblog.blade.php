@@ -7,34 +7,35 @@
     <form method="post" action="{{ route('post') }}" enctype="multipart/form-data" id="postForm">
         <div style="margin-top: 10px">
             <label for=""> Tên món ăn:</label>
-            <input type="text" name="nameFood">
+            <input type="text" name="nameFood" required>
         </div>
         <div style="margin-top: 10px">
             <label for="">Mô tả:</label>
-            <input type="text" name="description">
+            <input type="text" name="description" required>
         </div>
         <div style="margin-top: 10px">
             <label for="categorySelect">category:</label>
             <select id="categorySelect" name="category">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                @foreach ($category as $item)
+                    <option value="{{ $item['idCategory'] }}">{{ $item['nameCategory'] }}</option>
+                @endforeach
+
             </select>
         </div>
         <div style="margin-top: 10px">
             <label for="">cookingTime:</label>
-            <input type="text" name="cookingTime">
+            <input type="text" name="cookingTime" required>
         </div>
         <div style="margin-top: 10px">
             <label for="">Nguyên liêu:</label>
-            <textarea name="ingredients"></textarea>
+            <textarea name="ingredients" required></textarea>
         </div>
         <div class="form-group" style="margin-top: 10px">
             <label for="imageInput">Chọn tệp ảnh:</label>
-            <input type="file" accept="image/*" id="imageInput" onchange="displayImage()" name="thumbnail">
+            <input type="file" accept="image/*" id="imageInput" onchange="displayImage()" name="thumbnail" required>
             <img id="displayedImage" style="display:none; max-width: 100%;">
         </div>
-        <textarea name="textarea" id="default"></textarea>
+        <textarea name="textarea" id="default" required></textarea>
         <input type="button" value="Tải lên" class="btn btn-primary" onclick="uploadAndSubmit()" >
     </form>
 </div>

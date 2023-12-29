@@ -1,6 +1,4 @@
-<?php
- session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +111,8 @@
                         </div>
 
                         <div class="col-2 col-md-1 col-lg-2">
-                            <div class="top-nav__search">
+                            <div class="top-nav__search" style="display: flex">
+                                <input type="search">
                                 <button>
                                     <i class="fas fa-search"></i>
                                 </button>

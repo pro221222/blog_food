@@ -255,7 +255,7 @@
         <header>
           <h2 class="h2 article-title">Shared Food Categories</h2>
           <div >
-            <a href="Post.html"><i class="fa-solid fa-plus"></i></a>
+            <a href="{{ route('postblog') }}"><i class="fa-solid fa-plus"></i></a>
              <button  onclick="chuyenTrang()">Đăng Bài Mới </button>
           </div>
 
@@ -465,7 +465,7 @@
   <script>
     function chuyenTrang() {
       // Sử dụng window.location.href để chuyển đến trang mới
-      window.location.href = 'Post.html';
+      window.location.href = '{{ route('postblog') }}';
   }
   </script>
 

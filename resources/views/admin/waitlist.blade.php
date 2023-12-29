@@ -16,7 +16,7 @@
                                         <a href="index.html">Home</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        Blog
+                                        Waitlist
                                     </li>
                                 </ol>
                             </nav>
@@ -35,7 +35,7 @@
                                             <div class="row no-gutters">
                                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                                     <div class="blog-img">
-                                                        <img src="{{ $item['thumbnail'] }}" alt="" class="bg_img" />
+                                                        <img src="{{ asset($item['thumbnail']) }}" alt=""  />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12 col-sm-12">
@@ -47,10 +47,10 @@
                                                             <p> {{ $item['description'] }} </p>
                                                             <div>
                                                             <div class="pt-10">
-                                                                <a href="#" class="btn btn-outline-primary">Read More</a>
+                                                                <a href="{{ route('detail',['id' => $item['postID']]) }}" class="btn btn-outline-primary">Read More</a>
                                                             </div>
                                                             <div class="pt-10">
-                                                                <a href="#" class="btn btn-outline-primary">duyet</a>
+                                                                <a href="{{ route('postwaitlist',['id' => $item['postID']]) }}" class="btn btn-outline-primary">duyet</a>
                                                             </div>
                                                            </div>
                                                         </div>

@@ -24,6 +24,13 @@ class AdminBlogController extends Controller
 
 
     }
+    // public function postwaitlist($id) {
+    //     $response = Http::put('http://localhost:7114/api/Post'[
+
+    // ]);
+    // return view('admin/blog');
+
+    // }
     public function detail($id) {
         session_start();
         $response = Http::get('http://localhost:7114/api/Post/' . $id);
