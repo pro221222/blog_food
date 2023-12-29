@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class DetailController extends Controller
 {
     public function recipe_detail($id) {
-
+        session_start();
         $response = Http::get('http://localhost:7114/api/Post/' . $id);
         // http://localhost:7114/api/Post/99a481d9-06be-4865-aa29-8df36fa4bfb7
         // Kiểm tra nếu request thành công (HTTP status code 2xx)

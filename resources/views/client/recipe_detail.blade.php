@@ -78,6 +78,7 @@
 }
 
     </style>
+    <a href="{{ route('unlike') }}">fdssdvdsdvds</a>
    <div class="post">
             <button id="likeButton" onclick="toggleLike()"><i class="fa-solid fa-thumbs-up"></i></button>
           </div>

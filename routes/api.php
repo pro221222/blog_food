@@ -5,8 +5,10 @@ use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ContactControlller;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeFollowController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -59,6 +61,20 @@ Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
 Route::get('/postblog',[HomeController::class,'postblog'])->name('postblog');
 
 Route::post('/post',[HomeController::class,'post'])->name('post');
+
+Route::get('/postsss',[Controller::class,'postsss'])->name('postsss');
+
+
+
+
+//like vaf follow
+Route::get('/like',[LikeFollowController::class,'like'])->name('like');
+
+Route::get('/unlike',[LikeFollowController::class,'unlike'])->name('unlike');
+
+Route::get('/follow',[LikeFollowController::class,'follow'])->name('follow');
+
+Route::get('/unfollow',[LikeFollowController::class,'unfollow'])->name('unfollow');
 
 
 
