@@ -78,10 +78,7 @@
 }
 
     </style>
-
-
-        <input type="hidden" id="PostID" value="{{$array['title']['postID']}}">
-
+    <a href="{{ route('unlike') }}">fdssdvdsdvds</a>
    <div class="post">
             <button id="likeButton"  data-bind="css: like() === true ? 'liked':'d' ">
                 <i data-bind="click:toggleLike" class="fa-solid fa-thumbs-up"  ></i>
@@ -165,10 +162,6 @@
 
 
 </main>
-<script src="{{ asset('js\jquery\dist\jquery.min.js') }}"></script>
-<script src="{{ asset('js\like.js') }}"></script>
-<script src="{{ asset('js\comment.js') }}"></script>
- <!-- public\js\comment.js -->
 <script>
 
 

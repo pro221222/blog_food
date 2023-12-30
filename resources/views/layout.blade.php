@@ -192,12 +192,14 @@
         </div>
         <!-- Scroll-to-top button end -->
 
-        <!-- public\js\comment.js -->
-        <script src="{{ asset('js\signalr\dist\browser\signalr.min.js') }}"></script>
+        <!-- Javascript -->
         <script src="{{ asset('js\main.js') }}"></script>
+
+
+=======
         <script src="{{ asset('js\knockout\knockout-latest.min.js') }}"></script>
 
-
+>>>>>>> 32a88f2 (like)
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init({
