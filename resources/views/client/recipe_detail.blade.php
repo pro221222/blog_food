@@ -78,9 +78,15 @@
 }
 
     </style>
-    <a href="{{ route('unlike') }}">fdssdvdsdvds</a>
+
+<input type="hidden" id="unlikeRoute" value="{{route('like',  '1213' )}}">
+<input type="hidden" id="PostID" value="{{$array['title']['postID']}}">
+
    <div class="post">
-            <button id="likeButton" onclick="toggleLike()"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button id="likeButton"  data-bind="css: like() === true ? 'liked':'d' ">
+                <i data-bind="click:toggleLike" class="fa-solid fa-thumbs-up"  ></i>
+            </button>
+            <span data-bind="text:cout()"></span>
           </div>
     <!-- Recipe-detail section end -->
     <div class="comment-container">
@@ -109,19 +115,16 @@
 
     </div>
 </main>
+<script src="{{ asset('js\jquery\dist\jquery.min.js') }}"></script>
+<script src="{{ asset('js\like.js') }}"></script>
 <script>
-   let likeCount = 0;
 
-function toggleLike() {
-  const likeButton = document.getElementById("likeButton");
-  likeCount++;
 
-  if (likeCount % 2 === 1) {
-    likeButton.classList.add("liked");
-  } else {
-    likeButton.classList.remove("liked");
-  }
-}
+
+
+
+
+
 
 
       // Hàm thiết lập nội dung cho thẻ div#content
