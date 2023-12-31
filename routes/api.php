@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactControlller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DetailController;
@@ -80,7 +81,7 @@ Route::get('/follow',[LikeFollowController::class,'follow'])->name('follow');
 
 Route::get('/unfollow',[LikeFollowController::class,'unfollow'])->name('unfollow');
 
-
+Route::get('/GetComment/{id}',[CommentController::class,'GetComment'])->name('GetComment');
 
 
 
@@ -114,3 +115,8 @@ Route::get('/deleteblog/{id}',[AdminBlogController::class,'deleteblog'])->name('
 
 Route::get('/banuser',[AdminUserController::class,'ban'])->name('banuser');
 // Route::get('/postwaitlist/{id}',[AdminBlogController::class,'postwaitlist'])->name('postwaitlist');
+
+
+
+// comment
+
