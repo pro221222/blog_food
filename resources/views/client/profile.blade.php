@@ -131,7 +131,7 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Name">Richard hanrick</h1>
+          <h1 class="name" title="Name">{{ $_SESSION['userprofide'][ 'usernames'] }}</h1>
 
           <button class="follow-button" type="button">Theo Dõi</button>
           <h2>6</h2>
@@ -253,10 +253,16 @@
       <div class="portfolio" data-page="portfolio">
 
         <header>
-          <h2 class="h2 article-title">Shared Food Categories</h2>
+          {{-- <h2 class="h2 article-title">Shared Food Categories</h2> --}}
           <div >
+
+            @if ($_SESSION['userprofide']['role'] == 'User' || $_SESSION['userprofide']['role'] == 'Admin' )
             <a href="{{ route('postblog') }}"><i class="fa-solid fa-plus"></i></a>
              <button  onclick="chuyenTrang()">Đăng Bài Mới </button>
+            @else
+             <button >bạn bị ban </button>
+            @endif
+
           </div>
 
         </header>

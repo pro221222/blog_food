@@ -34,7 +34,7 @@
                     <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-delay="100">
                         <div class="recipes-list__item">
                             <a href="{{ route('recipe_detail',['id' => $item['postID']])}}">
-                                <img src="{{ $item['thumbnail'] }}" alt="">
+                                <img src=" {{ asset($item['thumbnail'] ) }}" alt="" style="width: 300px; height: 310px;">
                                 <div class="recipes-list__info-background">
                                     <div class="recipes-list__info">
                                         <h3>{{ $item['nameFood'] }}</h3>

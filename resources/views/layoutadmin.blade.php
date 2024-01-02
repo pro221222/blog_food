@@ -251,7 +251,12 @@
 							<span class="user-icon">
 								<img src="vendors/images/photo1.jpg" alt="" />
 							</span>
-							<span class="user-name">{{ $_SESSION['userprofide'][ 'usernames'] }}</span>
+                            @if ( !isset($_SESSION['userprofide']))
+                                <span class="user-name">{{ $_SESSION['userprofide'][ 'usernames'] }}</span>
+                            @else
+                                <a href="{{ route('login') }}"> login</a>
+                            @endif
+
 						</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
@@ -262,7 +267,7 @@
 							<a class="dropdown-item" href="{{ route('home') }}"
 								><i class="bi bi-house"></i> back home</a
 							>
-							<a class="dropdown-item" href="{{ route('login') }}"
+							<a class="dropdown-item" href="{{ route('logout') }}"
 								><i class="bi bi-box-arrow-in-right"></i> Log Out</a
 							>
 						</div>

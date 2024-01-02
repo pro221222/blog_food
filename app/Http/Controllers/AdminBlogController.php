@@ -24,13 +24,24 @@ class AdminBlogController extends Controller
 
 
     }
-    // public function postwaitlist($id) {
-    //     $response = Http::put('http://localhost:7114/api/Post'[
+    public function postwaitlist($id) {
+        session_start();
+        $responses = Http::put( 'http://localhost:7114/api/Post?PostID='.$id);
 
-    // ]);
-    // return view('admin/blog');
+        // dd( $responses);
+        $response = Http::get('http://localhost:7114/api/Post/PostTrue');
 
-    // }
+        // Kiểm tra nếu request thành công (HTTP status code 2xx)
+        if ($response->getStatusCode() >= 200 && $response->getStatusCode() < 300) {
+          $responseData = $response->getBody()->getContents();
+          $array = json_decode($responseData, true);
+
+      return view('admin/blog',compact('array'));
+      } else {
+          // Xử lý lỗi nếu request không thành công
+          return response()->json(['error' => 'Request không thành công'], $response->getStatusCode());
+      }
+    }
     public function detail($id) {
         session_start();
         $response = Http::get('http://localhost:7114/api/Post/' . $id);
@@ -50,7 +61,26 @@ class AdminBlogController extends Controller
     }
 }
     public function editblog() {
+        session_start();
         return view('admin/editblog');
+
+    }
+    public function deleteblog($id) {
+        session_start();
+        $response = Http::delete('http://localhost:7114/api/Post?PostID='.$id);
+
+        $response = Http::get('http://localhost:7114/api/Post/PostTrue');
+
+        // Kiểm tra nếu request thành công (HTTP status code 2xx)
+        if ($response->getStatusCode() >= 200 && $response->getStatusCode() < 300) {
+          $responseData = $response->getBody()->getContents();
+          $array = json_decode($responseData, true);
+
+      return view('admin/blog',compact('array'));
+      } else {
+          // Xử lý lỗi nếu request không thành công
+          return response()->json(['error' => 'Request không thành công'], $response->getStatusCode());
+      }
 
     }
 }

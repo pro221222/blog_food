@@ -6,7 +6,7 @@
     <section class="hero"></section>
 
         <img src="{{ asset('') }}" alt="" style="width: 100%; height: 500px;" >
-        <link rel="stylesheet" href="{{ asset('css/comment.css') }}">
+
     <!-- Hero section end -->
 
     <!-- Recipe-detail section start -->
@@ -47,11 +47,11 @@
                                     </div>
                                 </li>
                             </ul>
-
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-7">{{ $array['content']}}  </div>
+                <div class="col-12 col-lg-7"> <?php echo $array['content'] ?> </div>
+
             </div>
         </div>
 
@@ -177,6 +177,20 @@
 
 
 
+
+
+      // Hàm thiết lập nội dung cho thẻ div#content
+      function set_content()
+      {
+        document.getElementById("content").innerHTML = {{ $array['content']}};
+      }
+
+      // Hàm lấy nội dung cho thẻ div#content
+    //   function get_content()
+    //   {
+    //     var html = document.getElementById("content").innerHTML;
+    //     alert("Nội dung cần lấy là: " + html);
+    //   }
 
 
 </script>

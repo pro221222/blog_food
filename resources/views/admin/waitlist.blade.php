@@ -52,6 +52,9 @@
                                                             <div class="pt-10">
                                                                 <a href="{{ route('postwaitlist',['id' => $item['postID']]) }}" class="btn btn-outline-primary">duyet</a>
                                                             </div>
+                                                            <div class="pt-10">
+                                                                {{-- <a href="{{ route('') }}" class="btn btn-outline-primary">xoa</a> --}}
+                                                            </div>
                                                            </div>
                                                         </div>
                                                     </div>

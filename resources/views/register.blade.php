@@ -48,14 +48,11 @@
                             name="confirmPassword"style="border-top-right-radius: 30px; border-bottom-right-radius: 30px" required/>
                     </div>
                     <div>
-
                      @if (isset($successMessage))
                      <span style="color: red">{{ $successMessage }}</span>
-
                      @endif
                      @if (isset($success))
                      <span style="color: red">{{ $success}}</span>
-
                      @endif
                     </div>
                     <a href="{{ route('login') }}" style="color: black; margin-left: 250px">Sign in</a>

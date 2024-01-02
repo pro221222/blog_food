@@ -83,25 +83,6 @@ class LikeFollowController extends Controller
         echo("gdg");
 
     }
-    public function unlike($id) {
-        session_start();
-
-        $userID =   trim($_SESSION['userprofide']['nameIdentifiers'], '"');
-        $url = "http://localhost:7114/api/FollowerLike/unlike?UserLike={$userID}&PostID={$id}";
-
-        //    'http://localhost:7114/api/FollowerLike/unlike?Follower=fsdfs&Followin=sdfsdf' \ \
 
 
-     $response = Http::delete($url);
-
-
-        if($response->getStatusCode() >= 200 && $response->getStatusCode() < 300){
-            return json_decode($response->json("khong co gi"), true);
-        }
-
-    }
-    public function unfollow() {
-        echo("gdgdhhhhh");
-
-    }
 }

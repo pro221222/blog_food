@@ -62,7 +62,7 @@
     right: -36px;
 
     width: 0;   
-    border-width: 37px 18px;
+    border-width: 27px 18px;
     border-style: solid;
     border-color: #ff2a6b transparent transparent #ff2a6b;
 }
@@ -89,7 +89,7 @@
 .recipes-list__pagination > * {
     padding: 12px 15px;
     margin-right: 10px;
-    
+
     background-color: #cccccc;
     color: #fff;
 
