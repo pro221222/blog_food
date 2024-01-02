@@ -14,9 +14,11 @@ class LikeFollowController extends Controller
 
     }
     public function unlike() {
-        echo("fjgfsudf");
-        echo("gfgd");
-
+        session_start();
+         $token = $_SESSION['token']['accessToken'];
+       return response()->json([
+         'token' => $token
+       ],200);
     }
     public function unfollow() {
         echo("gdgdhhhhh");

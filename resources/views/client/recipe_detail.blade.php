@@ -5,7 +5,7 @@
     <!-- Hero section start -->
     <section class="hero"></section>
 
-        <img src="{{ asset('') }}" alt="" style="width: 100%; height: 500px;" >
+        <img src=" {{ asset($array['title']['thumbnail'] )}}" alt="" style="max-width: 100%; max-height: 500px;" >
 
     <!-- Hero section end -->
 
@@ -47,11 +47,11 @@
                                     </div>
                                 </li>
                             </ul>
-
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-7">{{ $array['content']}}  </div>
+                <div class="col-12 col-lg-7"> <?php echo $array['content'] ?> </div>
+
             </div>
         </div>
 
@@ -122,6 +122,20 @@ function toggleLike() {
     likeButton.classList.remove("liked");
   }
 }
+
+
+      // Hàm thiết lập nội dung cho thẻ div#content
+      function set_content()
+      {
+        document.getElementById("content").innerHTML = {{ $array['content']}};
+      }
+
+      // Hàm lấy nội dung cho thẻ div#content
+    //   function get_content()
+    //   {
+    //     var html = document.getElementById("content").innerHTML;
+    //     alert("Nội dung cần lấy là: " + html);
+    //   }
 
 
 </script>

@@ -27,12 +27,12 @@
                 <h2 class="recipes-list__title">Latest recipes</h2>
             </div>
 
-            <div class="row">
+            <div class="row">  @foreach ($array as $item)
                 <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-easing="ease-in-out"
                     data-aos-delay="100">
-                    @foreach ($array as $item)
+
                     <div class="recipes-list__item">
-                        <img src="{{ $item['thumbnail'] }}" alt="">
+                        <img src="{{ asset($item['thumbnail']) }}" alt=""  style="width: 300px; height: 310px;">
                         <div class="recipes-list__info-background">
                             <div class="recipes-list__info">
                                 <h3>{{ $item['nameFood'] }}</h3>
@@ -44,8 +44,8 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
-                </div>
+
+                </div>@endforeach
             </div>
 
             <div class="recipes-list__pagination">

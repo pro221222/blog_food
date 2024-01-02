@@ -11,7 +11,6 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Tymon\JWTAuth\Facades\JWTAuth;
-
 class LoginController extends Controller
 {
     public function login(){
@@ -76,6 +75,8 @@ public function checklogin() {
                 'nameIdentifiers' => $nameIdentifiers,
                 'usernames' =>  $username,
                 'role' =>  $role,
+                // 'email' =>  $email,
+                // 'role' =>  $role,
             );
 
 
@@ -140,7 +141,23 @@ public function register() {
     }
     public function detry() {
 
-        Auth::logout();
-        return redirect('login');
+        session_start(); // Make sure to start the session before using session_destroy()
+        // session_destroy();
+        unset($_SESSION['userprofide']);
+
+        $response = Http::get('http://localhost:7114/api/Post/PostTrue');
+
+        // Kiểm tra nếu request thành công (HTTP status code 2xx)
+        if ($response->getStatusCode() >= 200 && $response->getStatusCode() < 300) {
+          $responseData = $response->getBody()->getContents();
+          $array = json_decode($responseData, true);
+           return view('client/home',compact('array'));
+      } else {
+          // Xử lý lỗi nếu request không thành công
+          return response()->json(['error' => 'Request không thành công'], $response->getStatusCode());
+      }
+
+    // Nếu bạn muốn chuyển hướng người dùng sau khi đăng xuất, bạn có thể thực hiện như sau:
+
     }
 }

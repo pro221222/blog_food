@@ -68,17 +68,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <div class="ids">
                             @foreach ($user as $item)
-
+                                {{-- <input class="id" value=" {{$item['id']  }} " /> --}}
                             <tr>
                                 <th scope="row"></th>
                                 <td>{{ $item['displayName'] }}</td>
                                 <td>{{ $item['email'] }}</td>
                                 <td>{{ $item['phoneNumber'] }}</td>
                                 <td>
-
-                                    <input type="checkbox" checked class="switch-btn" data-color="#0099ff" />
-
+                                    @if ( $item['role'] == 1)
+                                        <a href="{{ route('banuser',['id' => $item['id'],'value' => 0]) }}"><button>ban</button></a>
+                                    @endif
+                                    @if($item['role'] == 0)
+                                        <a href="{{ route('banuser', ['id' => $item['id'],'value' => 1]) }}"><button>unban</button></a>
+                                    @endif
+                                    {{-- <input type="checkbox" checked class="switch-btn" data-color="#0099ff" /> --}}
                                 </td>
                                 <td>
                                     <div class="table-actions">
@@ -88,7 +93,9 @@
                                 </td>
 
                             </tr>
+
                               @endforeach
+                            </div>
 
                         </tbody>
                     </table>
@@ -98,19 +105,33 @@
         </div>
 
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    <script src="{{ asset('js\jquery\dist\jquery.min.js') }}"></script>
+    {{-- <script>
+
+
+        //    function edit() {
+        //        $.ajax({
+        //         tybe:'get',
+        //         url:'http://127.0.0.1:8000/api/edituser'+['id' => $['']]
+        //        })
+        //    }
+      /*  bu_reply.addEventListener("click", () => {
+    if (parentNode.classList.contains("replies") ) {
+      spawnReplyInput(parentNode, parentId, replyTo,depth);
+
+    }*/
+    document.addEventListener('DOMContentLoaded', function() {
             var switchBtn = document.querySelector('.switch-btn');
             var switchery = document.querySelector('.switchery');
             var clickCount = 0;
-
+        console.log(switchery)
             switchery.addEventListener('click', function() {
                 clickCount++;
 
                 // Toggle the checkbox every two clicks
                 if (clickCount % 2 === 0) {
                     switchBtn.checked = !switchBtn.checked;
-
+                            console.log("dfasdfasdfasdfasdf")
                     // Toggle the switchery style
                     switchery.classList.toggle('switchery-checked');
                 } else {
@@ -121,5 +142,7 @@
                 }
             });
         });
-    </script>
+
+
+    </script> --}}
 @endsection

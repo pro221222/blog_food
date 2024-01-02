@@ -34,7 +34,7 @@
                                             <div class="row no-gutters">
                                                 <div class="col-lg-4 col-md-12 col-sm-12">
                                                     <div class="blog-img">
-                                                        <img src="{{ $item['thumbnail'] }}" alt="" class="bg_img" />
+                                                        <img src=" {{ asset($item['thumbnail'] ) }} " alt="" class="bg_img" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12 col-sm-12">
@@ -43,17 +43,13 @@
                                                             <a href="#">{{ $item['nameFood'] }}</a>
                                                         </h4>
                                                         <div class="blog-by">
-                                                            <p>
-                                                                Lorem ipsum dolor sit amet, consectetur
-                                                                adipisicing elit, sed do eiusmod tempor
-                                                                incididunt ut labore et dolore magna aliqua.
-                                                                Ut enim ad minim veniam, quis nostrud
-                                                                exercitation ullamco laboris nisi ut aliquip
-                                                                ex ea commodo
-                                                            </p>
+                                                            <p>{{ $item['description'] }}</p>
                                                             <div class="pt-10">
                                                                 <a href="{{ route('detail',['id' => $item['postID']]) }}" class="btn btn-outline-primary">Read
                                                                     More</a>
+                                                            </div>
+                                                            <div class="pt-10">
+                                                                <a href="{{ route('deleteblog',['id' => $item['postID']]) }}" class="btn btn-outline-primary">delete</a>
                                                             </div>
                                                         </div>
                                                     </div>

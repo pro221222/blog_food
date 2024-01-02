@@ -103,5 +103,10 @@ Route::get('/edituser',[AdminUserController::class,'edituser'])->name('edituser'
 
 Route::get('/detail/{id}',[AdminBlogController::class,'detail'])->name('detail');
 
-Route::post('/postwaitlist/{id}',[AdminBlogController::class,'postwaitlist'])->name('postwaitlist');
+
+Route::get('/postwaitlist/{id}',[AdminBlogController::class,'postwaitlist'])->name('postwaitlist');
+
+Route::get('/deleteblog/{id}',[AdminBlogController::class,'deleteblog'])->name('deleteblog');
+
+Route::get('/banuser',[AdminUserController::class,'ban'])->name('banuser');
 // Route::get('/postwaitlist/{id}',[AdminBlogController::class,'postwaitlist'])->name('postwaitlist');
