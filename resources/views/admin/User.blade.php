@@ -68,6 +68,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach ($user as $item)
 
                             <tr>
@@ -75,9 +76,10 @@
                                 <td>{{ $item['displayName'] }}</td>
                                 <td>{{ $item['email'] }}</td>
                                 <td>{{ $item['phoneNumber'] }}</td>
+
                                 <td>
 
-                                    <input type="checkbox" checked class="switch-btn" data-color="#0099ff" />
+                                <input type="checkbox" checked class="switch-btn" value="{{ $item['id'] }}" data-color="#0099ff" onchange="handleCheckboxChange(this)"/>
 
                                 </td>
                                 <td>
@@ -90,6 +92,7 @@
                             </tr>
                               @endforeach
 
+
                         </tbody>
                     </table>
 
@@ -99,27 +102,20 @@
 
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var switchBtn = document.querySelector('.switch-btn');
-            var switchery = document.querySelector('.switchery');
-            var clickCount = 0;
+        
 
-            switchery.addEventListener('click', function() {
-                clickCount++;
+         var clickCount = 0;
+            function handleCheckboxChange(checkbox) {
+            if (checkbox.checked) {
+                var selectedId = checkbox.value;
+                console.log("Selected ID:", selectedId);
+                // Thực hiện các hành động cần thiết với ID đã chọn
+            }else{
+                var selectedId = checkbox.value;
+                console.log("Selected ID:", selectedId);
 
-                // Toggle the checkbox every two clicks
-                if (clickCount % 2 === 0) {
-                    switchBtn.checked = !switchBtn.checked;
+            }
+        }
 
-                    // Toggle the switchery style
-                    switchery.classList.toggle('switchery-checked');
-                } else {
-                    // Reset click count after the first click
-                    setTimeout(function() {
-                        clickCount = 0;
-                    }, 300);
-                }
-            });
-        });
     </script>
 @endsection

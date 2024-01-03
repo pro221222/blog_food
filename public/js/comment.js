@@ -65,6 +65,147 @@ const data = {
 
     ],
   };
+  const data2 = {
+    currentUser: {
+      image: {
+        png: "./images/avatars/image-juliusomo.png",
+        webp: "./images/avatars/image-juliusomo.webp",
+      },
+      username: "juliusomo",
+    },
+    comments: [
+      {
+        parent: 0,
+        id: 1,
+        depth:0,
+        countChild:1,
+        content:
+          "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+        createdAt: "1 month ago",
+        score: 12,
+        user: {
+          image: {
+            png: "./images/avatars/image-amyrobson.png",
+            webp: "./images/avatars/image-amyrobson.webp",
+          },
+          username: "amyrobson",
+        },
+
+        replies: [
+          {
+            parent: 3,
+            id: 1,
+            depth:1,
+            countChild:0,
+            content:
+              "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+            createdAt: "1 week ago",
+            score: 4,
+            replyingTo: "maxblagun",
+            user: {
+              image: {
+                png: "./images/avatars/image-ramsesmiron.png",
+                webp: "./images/avatars/image-ramsesmiron.webp",
+              },
+              username: "ramsesmiron",
+            },
+          },
+        ],
+      },
+      {
+        parent: 0,
+        id: 2,
+        depth:0,
+        countChild:3,
+        content:
+          "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+        createdAt: "2 weeks ago",
+        score: 5,
+        user: {
+          image: {
+            png: "./images/avatars/image-maxblagun.png",
+            webp: "./images/avatars/image-maxblagun.webp",
+          },
+          username: "maxblagun",
+        },
+        replies: [
+          {
+            parent: 2,
+            id: 1,
+            depth:1,
+            countChild:1,
+            content:
+              "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+            createdAt: "1 week ago",
+            score: 4,
+            replyingTo: "maxblagun",
+            user: {
+              image: {
+                png: "./images/avatars/image-ramsesmiron.png",
+                webp: "./images/avatars/image-ramsesmiron.webp",
+              },
+              username: "ramsesmiron",
+            }, replies: [
+              {
+                parent: 2,
+                id: 1,
+                depth:2,
+                countChild:0,
+                content:
+                  "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+                createdAt: "1 week ago",
+                score: 4,
+                replyingTo: "maxblagun",
+                user: {
+                  image: {
+                    png: "./images/avatars/image-ramsesmiron.png",
+                    webp: "./images/avatars/image-ramsesmiron.webp",
+                  },
+                  username: "ramsesmiron",
+                },
+              },
+            ]
+          },
+          {
+            parent: 2,
+            id: 1,
+            depth:1,
+            countChild:0,
+            content:
+              "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+            createdAt: "1 week ago",
+            score: 4,
+            replyingTo: "maxblagun",
+            user: {
+              image: {
+                png: "./images/avatars/image-ramsesmiron.png",
+                webp: "./images/avatars/image-ramsesmiron.webp",
+              },
+              username: "ramsesmiron",
+            },
+          },
+          {
+            parent: 2,
+            id: 1,
+            depth:1,
+            countChild:0,
+            content:
+              "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+            createdAt: "2 days ago",
+            score: 2,
+            replyingTo: "ramsesmiron",
+            user: {
+              image: {
+                png: "./images/avatars/image-juliusomo.png",
+                webp: "./images/avatars/image-juliusomo.webp",
+              },
+              username: "juliusomo",
+            },
+          },
+        ],
+      },
+    ],
+  };
   function appendFrag(frag, parent) {
     var children = [].slice.call(frag.childNodes, 0);
     parent.appendChild(frag);
@@ -232,7 +373,7 @@ const data = {
             type: 'get',
             url: 'http://127.0.0.1:8000/api/GetComment/'+PostID,
             success: function(response) {
-                for (var i = response.length - 1; i => 0; i--) {
+               /* for (var i = response.length - 1; i => 0; i--) {
                  //   addComment(response[i].content,0)
                     var comment = new Comment (response[i].commentParentsID,response[i].commentID,response[i].content,response[i].timeComment,response[i].depth,response[i].nameComment,response[i].avatar)
 
@@ -243,13 +384,23 @@ const data = {
                     initComments()
 
 
-                }
+                }*/
+
+                response.forEach((element) => {
+                  var comment = new Comment (element.commentParentsID,element.commentID,element.content,element.timeComment,element.depth,element.nameComment,element.avatar)
+                  const myArray = [comment];
+                  console.log("mang là:"+myArray);
+                  data.comments.push(comment)
+                  console.log(data)
+                  initComments()
+
+                })
             },
             error: function (jqXHR, textStatus, errorThrown) {
             }
         })
     }
-
+    loadComment()
   })
 
 

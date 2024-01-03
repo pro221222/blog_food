@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class LikeFollowController extends Controller
 {
-    public function Getlike($id) {
+    public function Getlike($id)
+    {
         session_start();
         $userID =   trim($_SESSION['userprofide']['nameIdentifiers'], '"');
         $url = "http://localhost:7114/api/FollowerLike?UserLike={$userID}&PostID={$id}";
@@ -23,7 +24,9 @@ class LikeFollowController extends Controller
         return response()->json([
             "data"=> $responseData,
         ]);
-    }
+        }else{
+            return json_decode($response) ;
+        }
 
 
 

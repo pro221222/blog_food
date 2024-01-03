@@ -541,6 +541,7 @@
 		<script src="{{ asset('js\bootstrap-tagsinput.js') }}"></script>
 		<!-- bootstrap-touchspin js -->
 		<script src="{{ asset('js\jquery.bootstrap-touchspin.js') }}"></script>
+      
 
 		<!-- Google Tag Manager (noscript) -->
 		<noscript
