@@ -17,7 +17,7 @@
             <label for="categorySelect">category:</label>
             <select id="categorySelect" name="category">
                 @foreach ($category as $item)
-                    <option value="{{ $item['idCategory'] }}">{{ $item['nameCategory'] }}</option>
+                    <option value="{{ $item['id'] }}">{{ $item['nameCategory'] }}</option>
                 @endforeach
 
             </select>

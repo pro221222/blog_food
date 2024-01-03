@@ -240,7 +240,11 @@
 						</div>
 					</div>
 				</div>
+                @if ( !isset($_SESSION['userprofide']))
+                     <a href="{{ route('login') }}" style="back"> login</a>
+                     @else
 				<div class="user-info-dropdown">
+
 					<div class="dropdown">
 						<a
 							class="dropdown-toggle"
@@ -251,11 +255,11 @@
 							<span class="user-icon">
 								<img src="vendors/images/photo1.jpg" alt="" />
 							</span>
-                            @if ( !isset($_SESSION['userprofide']))
+
                                 <span class="user-name">{{ $_SESSION['userprofide'][ 'usernames'] }}</span>
-                            @else
-                                <a href="{{ route('login') }}"> login</a>
-                            @endif
+
+
+
 
 						</a>
 						<div
@@ -273,6 +277,7 @@
 						</div>
 					</div>
 				</div>
+    @endif
 				<div class="github-link">
 					<a href="https://github.com/dropways/deskapp" target="_blank"
 						><img src="vendors/images/github.svg" alt=""

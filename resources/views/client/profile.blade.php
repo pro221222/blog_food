@@ -1,6 +1,4 @@
-<?php
- session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +49,7 @@
                     @if (!isset($_SESSION['userprofide'][ 'usernames']) )
                         <a href="{{ route('login') }}">Login</a>
                     @else
-                    <a href="{{ route('profile') }}">{{ $_SESSION['userprofide'][ 'usernames'] }}</a>
+                    <a href="{{ route('profile', ['id'=>  $_SESSION['userprofide'][ 'nameIdentifiers']]) }}">{{ $_SESSION['userprofide'][ 'usernames'] }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">logout</a>
                     @endif
@@ -125,10 +123,10 @@
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
-
+{{-- 
         <figure class="avatar-box">
           <img src="./images/profile/my-avatar.png" alt="Richard hanrick" width="80">
-        </figure>
+        </figure> --}}
 
         <div class="info-content">
           <h1 class="name" title="Name">{{ $_SESSION['userprofide'][ 'usernames'] }}</h1>
@@ -160,7 +158,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:richard@example.com" class="contact-link">{{ $user['email'] }}</a>
             </div>
 
           </li>
@@ -174,7 +172,7 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a href="tel:+12133522795" class="contact-link">{{ $user['phoneNumber'] }}</a>
             </div>
 
           </li>
@@ -256,7 +254,7 @@
           {{-- <h2 class="h2 article-title">Shared Food Categories</h2> --}}
           <div >
 
-            @if ($_SESSION['userprofide']['role'] == 'User' || $_SESSION['userprofide']['role'] == 'Admin' )
+            @if ($user['role'] == 1)
             <a href="{{ route('postblog') }}"><i class="fa-solid fa-plus"></i></a>
              <button  onclick="chuyenTrang()">Đăng Bài Mới </button>
             @else

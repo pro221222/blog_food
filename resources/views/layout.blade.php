@@ -77,7 +77,7 @@
                                 @if (!isset($_SESSION['userprofide'][ 'usernames'])&& !isset($_SESSION['userprofide']))
                                     <a href="{{ route('login') }}">Login</a>
                                 @else
-                                <a href="{{ route('profile') }}">{{ $_SESSION['userprofide'][ 'usernames'] }}</a>
+                                <a href="{{ route('profile', ['id'=>  $_SESSION['userprofide'][ 'nameIdentifiers']]) }}">{{ $_SESSION['userprofide'][ 'usernames'] }}</a>
                                 <span>/</span>
                                 <a href="{{ route('logout') }}">logout</a>
                                 @endif

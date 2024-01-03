@@ -55,7 +55,7 @@ Route::get('/contact',[ContactControlller::class,'contact'])->name('contact');
 
 Route::get('/about',[AboutController::class,'about'])->name('about');
 
-Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
+Route::get('/profile/{id}',[ProfileController::class,'profile'])->name('profile');
 
 
 Route::get('/postblog',[HomeController::class,'postblog'])->name('postblog');
