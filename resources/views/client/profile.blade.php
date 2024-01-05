@@ -123,7 +123,7 @@
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
-{{-- 
+{{--
         <figure class="avatar-box">
           <img src="./images/profile/my-avatar.png" alt="Richard hanrick" width="80">
         </figure> --}}
@@ -158,7 +158,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">{{ $user['email'] }}</a>
+              <a href="mailto:richard@example.com" class="contact-link">{{ $user['changeRole']['email'] }}</a>
             </div>
 
           </li>
@@ -172,38 +172,13 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+12133522795" class="contact-link">{{ $user['phoneNumber'] }}</a>
+              <a href="tel:+12133522795" class="contact-link">{{ $user['changeRole']['phoneNumber'] }}</a>
             </div>
 
           </li>
 
-          <li class="contact-item">
 
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
 
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">June 23, 1982</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Sacramento, California, USA</address>
-            </div>
-
-          </li>
 
         </ul>
 
@@ -254,11 +229,11 @@
           {{-- <h2 class="h2 article-title">Shared Food Categories</h2> --}}
           <div >
 
-            @if ($user['role'] == 1)
+            @if ($user['changeRole']['role'] == 0)
+            <button >bạn bị ban </button>
+            @else
             <a href="{{ route('postblog') }}"><i class="fa-solid fa-plus"></i></a>
              <button  onclick="chuyenTrang()">Đăng Bài Mới </button>
-            @else
-             <button >bạn bị ban </button>
             @endif
 
           </div>
@@ -294,168 +269,31 @@
           </div>
 
           <ul class="project-list">
+                @foreach ($user['titleViewModel'] as $item )
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+                    <li class="project-item  active" data-filter-item data-category="web development">
+                    <a href="{{ route('recipe_detail',['id' => $item['postID']])}}">
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+                        <figure class="project-img">
+                        <div class="project-item-icon-box">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
 
-                  <img src="./images/profile/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
+                        <img src="{{ asset($item['thumbnail']) }}" alt="finance" loading="lazy">
+                        </figure>
 
-                <h3 class="project-title">Finance</h3>
+                        <h3 class="project-title">{{ $item['nameFood'] }}</h3>
+                        @if ($item['isFavorite'] == false)
 
-                <p class="project-category">Web development</p>
+                            <p class="project-category">đang duyệt</p>
+                        @else
+                            <p class="project-category"> đã duyệt </p>
+                        @endif
 
-              </a>
-            </li>
+                    </a>
+                    </li>
+                @endforeach
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./images/profile/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
 
           </ul>
         </section>

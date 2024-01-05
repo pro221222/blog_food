@@ -68,13 +68,19 @@ Route::get('/postsss',[Controller::class,'postsss'])->name('postsss');
 
 
 //like vaf follow
-Route::get('/like',[LikeFollowController::class,'like'])->name('like');
+Route::get('/Getlike/{id}',[LikeFollowController::class,'Getlike'])->name('Getlike');
 
-Route::get('/unlike',[LikeFollowController::class,'unlike'])->name('unlike');
+Route::get('/like/{id}',[LikeFollowController::class,'like'])->name('like');
+
+Route::get('/unlike/{id}',[LikeFollowController::class,'unlike'])->name('unlike');
+
+Route::get('/GetCountLike/{id}',[LikeFollowController::class,'GetCountLike'])->name('GetCountLike');
 
 Route::get('/follow',[LikeFollowController::class,'follow'])->name('follow');
 
 Route::get('/unfollow',[LikeFollowController::class,'unfollow'])->name('unfollow');
+
+
 
 
 

@@ -9,13 +9,12 @@ class ProfileController extends Controller
 {
     public function profile($id) {
         session_start();
-        $response = Http::get('http://localhost:7114/api/User/user?User=' . trim($id, '"'));
-        // http://localhost:7114/api/Post/99a481d9-06be-4865-aa29-8df36fa4bfb7
-        // Kiểm tra nếu request thành công (HTTP status code 2xx)
+        $response = Http::get('http://localhost:7114/api/Post/PostUser?UserId=' . trim($id, '"'));
+
         if ($response->getStatusCode() >= 200 && $response->getStatusCode() < 300) {
           $responseData = $response->getBody()->getContents();
           $user = json_decode($responseData, true);
-// dd( $user);
+        //   dd( $user);
            return view('client/profile',compact('user'));
       } else {
           // Xử lý lỗi nếu request không thành công

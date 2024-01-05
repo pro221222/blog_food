@@ -265,7 +265,7 @@
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
 						>
-							<a class="dropdown-item" href="{{ route('profile') }}"
+							<a class="dropdown-item" href="{{ route('profile', ['id'=>  $_SESSION['userprofide'][ 'nameIdentifiers']]) }}"
 								><i class="bi bi-person-circle"></i> Profile</a
 							>
 							<a class="dropdown-item" href="{{ route('home') }}"
