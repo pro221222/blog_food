@@ -130,13 +130,5 @@ function toggleLike() {
         document.getElementById("content").innerHTML = {{ $array['content']}};
       }
 
-      // Hàm lấy nội dung cho thẻ div#content
-    //   function get_content()
-    //   {
-    //     var html = document.getElementById("content").innerHTML;
-    //     alert("Nội dung cần lấy là: " + html);
-    //   }
-
-
 </script>
 @endsection
