@@ -112,6 +112,7 @@
         </div>
 
     </div>
+    
 </main>
 <script src="{{ asset('js\jquery\dist\jquery.min.js') }}"></script>
 <script src="{{ asset('js\like.js') }}"></script>

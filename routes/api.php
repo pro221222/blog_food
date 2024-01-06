@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\CaloController;
 use App\Http\Controllers\ContactControlller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DetailController;
@@ -52,6 +53,8 @@ Route::get('/recipe_detail/{id}',[DetailController::class,'recipe_detail'])->nam
 Route::get('/recipes',[RecipesController::class,'recipes'])->name('recipes');
 
 Route::get('/contact',[ContactControlller::class,'contact'])->name('contact');
+
+Route::get('/Calo',[CaloController::class,'Calo'])->name('Calo');
 
 Route::get('/about',[AboutController::class,'about'])->name('about');
 

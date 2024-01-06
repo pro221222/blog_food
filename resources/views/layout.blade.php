@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/recipe-detail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/recipes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/Calo.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css\profile.css') }}"> --}}
 
 
@@ -109,6 +110,7 @@
                                     <li><a href="{{ route('admin') }}">admin</a></li>
                                 @endif
                                 @endif
+                                <li><a href="{{ route('Calo') }}">calo</a></li>
                                 <li><a href="{{ route('about') }}">About</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
