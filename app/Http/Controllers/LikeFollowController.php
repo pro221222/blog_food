@@ -79,10 +79,34 @@ class LikeFollowController extends Controller
 
 
 
-    public function follow() {
-        echo("gdg");
+    public function GetComment($id) {
+
+
+        $url = "http://localhost:7114/api/Comment?PostID={$id}";
+
+            //    'http://localhost:7114/api/Comment?PostID=b1ca04ff-e2d1-4c54-8a91-70c250ebda33' \
+
+
+        $response = Http::get($url);
+        $responseData = $response->json();
+        if($response->getStatusCode() >= 200 && $response->getStatusCode() < 300){
+
+            return json_decode($response);
+        };
+
 
     }
+
+    public function GetUser()
+    {
+        session_start();
+       $UserID  =    trim($_SESSION['userprofide']['nameIdentifiers'], '"');
+
+       return ($UserID);
+    }
+
+
+
 
 
 }

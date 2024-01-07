@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- CSS Stylesheets  -->
+  
     <link rel="stylesheet" href="{{ asset('css/container.css') }}">
     <link rel="stylesheet" href="{{ asset('css/about.css') }}">
     <link rel="stylesheet" href="{{ asset('css/col.css') }}">
@@ -197,6 +198,7 @@
         <!-- Javascript -->
         <script src="{{ asset('js\main.js') }}"></script>
         <script src="{{ asset('js\knockout\knockout-latest.min.js') }}"></script>
+        <script src="{{ asset('js\signalr\dist\browser\signalr.min.js') }}"></script>
 
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -210,83 +212,16 @@
         {{-- comment --}}
            <script>
 
-            function submitComment() {
-                var commentText = document.getElementById("commentText").value;
+        var connection = new signalR.HubConnectionBuilder()
+                                .withUrl('http://localhost:7114/SignalrHub')
+                                .build();
 
-                // Tạo một nhân tố bình luận mới
-                var newComment = createComment("Guest", commentText);
-
-                // Nối thêm bình luận mới vào phần bình luận
-                var commentSection = document.getElementById("commentSection");
-                commentSection.appendChild(newComment);
-
-                // Xóa trường đầu vào nhập nội dung
-                document.getElementById("commentText").value = "";
-            }
-
-            function showReplyForm(parentId) {
-                var replyForm = document.getElementById(parentId + "-replyForm");
-                replyForm.style.display = "block";
-            }
-
-            function submitReply(parentId) {
-                var replyText = document.getElementById(parentId + "-replyText").value;
-
-                // Tạo một phần tử trả lời mới
-                var newReply = createComment("Guest", replyText);
-
-                // Nối thêm câu trả lời mới cho phần trả lời của nhận xét tương ứng
-                var repliesSection = document.getElementById(parentId + "-replies");
-                repliesSection.appendChild(newReply);
-
-                // Xóa trường đầu vào trả lời
-                document.getElementById(parentId + "-replyText").value = "";
-            }
-
-            function showNestedReplyForm(parentId) {
-                var nestedReplyForm = document.getElementById(parentId + "-nestedReplyForm");
-                nestedReplyForm.style.display = "block";
-            }
-
-            function submitNestedReply(parentId) {
-                var nestedReplyText = document.getElementById(parentId + "-nestedReplyText").value;
-
-                // Tạo một phần tử trả lời mới lồng mới
-                var newNestedReply = createComment("Guest", nestedReplyText);
-
-                // Nối thêm câu trả lời mới cho phần trả lời của nhận xét tương ứng
-                var repliesSection = document.getElementById(parentId + "-replies");
-                repliesSection.appendChild(newNestedReply);
-
-                //Xóa trường đầu vào trả lời lồng nhau
-                document.getElementById(parentId + "-nestedReplyText").value = "";
-            }
-
-            function createComment(userName, text) {
-                var commentId = "comment" + Date.now(); // Tạo một ID duy nhất cho mỗi bình luận
-
-                var comment = document.createElement("div");
-                comment.className = "comment";
-
-                comment.innerHTML = `
-                    <img src="images/about.jpg" alt="Avatar" class="avatar">
-                    <div>
-                        <span class="user-name">${userName}</span>
-                        <p class="comment-text">${text}</p>
-                        <a href="javascript:void(0);" onclick="showReplyForm('${commentId}')">Phản Hồi </a>
-                        <div class="reply-form" id="${commentId}-replyForm" style="display: none;">
-                            <div style="display:flex">
-                            <textarea id="${commentId}-replyText" rows="" placeholder="" style="border-radius: 10px;"></textarea>
-                            <button type="button" onclick="submitReply('${commentId}')" style="margin-left:5px;border:none;">Submit </button>
-                            </div>
-                        </div>
-                        <div class="replies" id="${commentId}-replies"></div>
-                    </div>
-                `;
-
-                return comment;
-
-            }
+                            connection.start().then(function () {
+                                console.log('SignalR Started...');
+                            }).catch(function (err) {
+                                console.log('Không thể kết nối SignalR...');
+                                return console.error(err);
+                            });
         </script>
 
     </body>

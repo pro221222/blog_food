@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-   
+
     var myElement = document.getElementById('myElement');
     var calories = document.getElementById('calories');
 
@@ -11,8 +11,9 @@ $(document).ready(function () {
                 <th>${obj.parsed[0].quantity}</th>
                 <th>${obj.parsed[0].measure}</th>
                 <th>${ obj.parsed[0].food}</th>
-                <th>${obj.parsed[0].weight.toFixed(2)} g</th>
                 <th>${obj.parsed[0].nutrients.ENERC_KCAL.quantity.toFixed(2)} kcal</th>
+                <th>${obj.parsed[0].weight.toFixed(2)} g</th>
+
             </tr> `;
 
         return html;
@@ -36,7 +37,7 @@ $(document).ready(function () {
             //  parent.innerHTML = "";
             Object.keys(data.ingredients).forEach(key => {
                 let obj = data.ingredients[key];
-           
+
                 const tableRow = createTableRow(obj);
                 fragment.push(tableRow)
             });
@@ -51,7 +52,7 @@ $(document).ready(function () {
             </tr>
         </thead>
         <tbody>
-            ${fragment.join('')}     
+            ${fragment.join('')}
         </tbody>
     </table>`;
 
@@ -138,7 +139,7 @@ $(document).ready(function () {
                         <td><b>${objTotalDaily.K.quantity.toFixed(2)} %</b></td>
                     </tr>
                 </tbody>
-            </table>           
+            </table>
               `;
               fragmentcalories.push(calorieshtml)
         //    });

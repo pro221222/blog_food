@@ -1,6 +1,6 @@
 @extends('layout')
 @section('main')
-
+<link rel="stylesheet" href="{{ asset('css/comment.css') }}">
 <main>
     <!-- Hero section start -->
     <section class="hero"></section>
@@ -87,33 +87,64 @@
         <span data-bind="text:cout()"></span>
     </div>
     <!-- Recipe-detail section end -->
-    <div class="comment-container">
 
-        <!-- Comment Form -->
-        <div class="comment-form">
-            <h2> Comment</h2>
-            <form id="commentForm">
+</main>
+<div class="comment-container">
 
-                <div class="content">
-                    <img src="images/about.jpg" alt="Avatar" class="avatar">
-                    <textarea id="commentText" name="commentText" rows="4" required></textarea>
-                </div>
+    <template class="reply-input-template">
+        <div class="reply-input container">
+          <textarea class="cmnt-input" placeholder="Add a comment..."></textarea>
+          <button class="bu-primary">SEND</button>
+        </div>
+      </template>
 
-                <button type="button" onclick="submitComment()">Submit</button>
+      <template class="comment-template">
+        <div class="comment-wrp">
+          <div class="comment container">
+            <div class="c-controls">
+              <a class="delete"><img src="{{ asset('images/icon-delete.svg') }}" alt="" class="control-icon">Delete</a>
+              <a class="edit"><img src="{{ asset('images/icon-edit.svg') }}" alt="" class="control-icon">Edit</a>
+              <a class="reply"><img src="{{ asset('images/icon-reply.svg') }}" alt="" class="control-icon">Reply</a>
+            </div>
+            <div class="c-user">
+              <p class="usr-name">maxblagun</p>
+              <p class="cmnt-at">2 weeks ago</p>
+            </div>
+            <p class="c-text">
+              <span class="reply-to"></span>
+              <span class="c-body"></span>
+            </p>
+          </div><!--comment-->
+          <div class="replies comments-wrp">
+          </div><!--replies-->
+        </div>
+      </template>
 
-            </form>
+        <div class="comment-section">
+
+          <div class="comments-wrp">
+
+          </div> <!--commentS wrapper-->
+          <div class="reply-input container">
+            <textarea class="cmnt-input" placeholder="Add a comment..."></textarea>
+            <button class="bu-primary">SEND</button>
+          </div> <!--reply input-->
+        </div> <!--comment sectio-->
+
+        <div class="modal-wrp invisible">
+          <div class="modal container">
+            <h3>Delete comment</h3>
+            <p>Are you sure you want to delete this comment? This will remove the comment and cant be undone</p>
+            <button class="yes">YES,DELETE</button>
+            <button class="no">NO,CANCEL</button>
+          </div>
         </div>
 
 
+</div>
 
-        <!-- Comment Section -->
-        <div class="comment-section" id="commentSection">
-            <!-- Existing Comments will be added here -->
-        </div>
-
-    </div>
-    
 </main>
 <script src="{{ asset('js\jquery\dist\jquery.min.js') }}"></script>
 <script src="{{ asset('js\like.js') }}"></script>
+<script src="{{ asset('js\comment.js') }}"></script>
 @endsection

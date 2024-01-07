@@ -83,7 +83,10 @@ Route::get('/follow',[LikeFollowController::class,'follow'])->name('follow');
 
 Route::get('/unfollow',[LikeFollowController::class,'unfollow'])->name('unfollow');
 
+// comment
 
+Route::get('/GetComment/{id}',[LikeFollowController::class,'GetComment'])->name('GetComment');
+Route::get('/GetUser/',[LikeFollowController::class,'GetUser'])->name('GetUser');
 
 
 
