@@ -56,6 +56,10 @@ Route::get('/contact',[ContactControlller::class,'contact'])->name('contact');
 
 Route::get('/Calo',[CaloController::class,'Calo'])->name('Calo');
 
+Route::get('/Nutrition',[CaloController::class,'Nutrition'])->name('Nutrition');
+
+Route::get('/Planner',[CaloController::class,'Planner'])->name('Planner');
+
 Route::get('/about',[AboutController::class,'about'])->name('about');
 
 Route::get('/profile/{id}',[ProfileController::class,'profile'])->name('profile');

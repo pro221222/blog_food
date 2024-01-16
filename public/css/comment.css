@@ -57,7 +57,7 @@ button:hover{
 .container{
     border-radius: 8px;
     padding: 1.5rem;
-    background-color: var(--White);
+    /* background-color: var(--White); */
 }
 .comments-wrp {
     display: flex;

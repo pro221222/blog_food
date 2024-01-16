@@ -37,31 +37,7 @@ public function checklogin() {
             'username' => $responseData['refreshToken']
 
         );
-        // try {
-        //     // Decode the token to get user information
-        //     $user = JWTAuth::setToken( $_SESSION['token']['accessToken'])->toUser();
-        //     dd($user);
-        //     // You can use $user to get user information
-        //     $userId = $user->id;
-        //     $username = $user->username;
-
-        //     // Or use Auth facade
-        //     $userIdFromAuth = Auth::id();
-        //     $usernameFromAuth = Auth::user()->username;
-
-        //     // Display user information
-        //     echo "User ID: $userId, Username: $username\n";
-        //     echo "User ID from Auth facade: $userIdFromAuth, Username from Auth facade: $usernameFromAuth\n";
-        // } catch (TokenExpiredException $e) {
-        //     // Token has expired
-        //     echo 'Token has expired';
-        // } catch (TokenInvalidException $e) {
-        //     // Token is invalid
-        //     echo 'Token is invalid';
-        // } catch (JWTException $e) {
-        //     // Other errors occurred while decoding the token
-        //     echo 'An error occurred while decoding token';
-        // }
+    
         $user = JWTAuth::setToken($_SESSION['token']['accessToken']); //<-- set token and check
         if ( $claim = JWTAuth::getPayload()) {
             $name = $claim->get('http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name');
